@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/api/db/schema.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/20230729171629_user_table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/20230729171638_profile_table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/20230729171647_farm_table.sql" dialect="PostgreSQL" />
   </component>
 </project>
