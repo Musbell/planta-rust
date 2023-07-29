@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JetClientState">
+    <option name="folders">
+      <list>
+        <folderState>
+          <option name="id" value="11dbcba5-d387-495d-8be9-7ba9fec05b13" />
+          <option name="name" value="planta-api" />
+          <option name="requests">
+            <list>
+              <requestState>
+                <option name="id" value="cc5b694a-0079-41c4-bb16-151a151a2bfd" />
+                <option name="method" value="GET" />
+                <option name="name" value="get-test" />
+                <option name="url" value="http://127.0.0.1:8000/" />
+              </requestState>
+            </list>
+          </option>
+          <option name="sortWeight" value="1000000" />
+          <option name="syncProperties">
+            <synchronizationPropertiesState>
+              <option name="folderPath" value="$PROJECT_DIR$/.jetclient" />
+            </synchronizationPropertiesState>
+          </option>
+        </folderState>
+      </list>
+    </option>
+    <option name="id" value="8b1e4d88-0ae9-4d64-bcce-04cde107ad50" />
+  </component>
+</project>
