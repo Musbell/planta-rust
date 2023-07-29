@@ -8,3 +8,4 @@ actix-web = "4.3.1"
 shuttle-actix-web = "0.21.0"
 shuttle-runtime = "0.21.0"
 tokio = "1.26.0"
+sqlx = { version = "0.7.1", default-features = false, features = [ "runtime-tokio", "tls-rustls", "macros", "postgres", "uuid", "chrono", "json" ] }
