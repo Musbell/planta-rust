@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/migrations/20230729171629_user_table.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/migrations/20230729171638_profile_table.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/migrations/20230729171647_farm_table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/20230729193544_change_timestamp_type_to_timestampz.sql" dialect="PostgreSQL" />
   </component>
 </project>

@@ -1,5 +1,5 @@
 CREATE TABLE "Farm" (
-                        "id" TEXT PRIMARY KEY,
+                        "id" UUID PRIMARY KEY,
                         "createdAt" timestamp(3) NOT NULL DEFAULT current_timestamp,
                         "updatedAt" timestamp(3) NOT NULL DEFAULT current_timestamp,
                         "farm_name" VARCHAR(191),
@@ -12,7 +12,7 @@ CREATE TABLE "Farm" (
                         "ownership" VARCHAR(6) CHECK (ownership IN ('RENT', 'OWNER', 'INHERIT')) DEFAULT 'RENT',
                         "available_portion" DOUBLE PRECISION,
                         "country" VARCHAR(191),
-                        "farmerId" TEXT NOT NULL,
+                        "farmerId" UUID NOT NULL,
                         "latitude" DOUBLE PRECISION,
                         "longitude" DOUBLE PRECISION,
                         "farm_site" VARCHAR(191),
