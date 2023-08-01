@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Dev" type="CargoCommandRunConfiguration" factoryName="Cargo Command" singleton="false">
-    <option name="command" value="run" />
+    <option name="command" value="watch -x &quot;run&quot;" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
     <option name="emulateTerminal" value="false" />
     <option name="channel" value="DEFAULT" />
@@ -11,6 +11,7 @@
     <option name="backtrace" value="SHORT" />
     <envs>
       <env name="DATABASE_URL" value="postgres://Musbell:YhX1iwlJV4Nn@ep-lingering-mud-545295-pooler.eu-central-1.aws.neon.tech/planta-db" />
+      <env name="RUST_LOG" value="trace" />
     </envs>
     <option name="isRedirectInput" value="false" />
     <option name="redirectInputPath" value="" />

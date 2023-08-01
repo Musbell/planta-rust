@@ -7,10 +7,7 @@ edition = "2021"
 actix-web = "4.3.1"
 tokio = "1.26.0"
 sqlx = { version = "0.7.1", default-features = false, features = [ "runtime-tokio", "tls-rustls", "macros", "postgres", "uuid", "chrono", "json" ] }
-serde_json = "1.0.73"
-serde = { version = "1.0.132", features = ["derive"] }
 env_logger = "0.10.0"
-uuid = { version = "1.4.1", features = ["serde", "v4"] }
-chrono = { version = "0.4", features = ["serde"] }
 dotenv = "0.15.0"
-tracing = "0.1"
+
+api-lib = { path = "../lib" }
