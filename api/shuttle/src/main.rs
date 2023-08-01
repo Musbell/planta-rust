@@ -1,6 +1,5 @@
-use actix_web::{web, App, HttpServer, Responder, HttpResponse, get};
+use actix_web::{web, App, HttpServer};
 use sqlx::postgres::{ PgPoolOptions};
-use api_lib::user::{get_all_users, get_user};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -16,8 +15,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(pool.clone())) // updated here
-            .service(get_user)
-            .service(get_all_users)
+            .configure(api_lib::user::service)
     })
         .bind("127.0.0.1:8000")?
         .run()

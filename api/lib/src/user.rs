@@ -1,10 +1,14 @@
-use actix_web::get;
-use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{web::{self, ServiceConfig}, HttpResponse, Responder};
 use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
-use sqlx::Executor;
 use sqlx::postgres::{PgPool};
 use uuid::Uuid;
+
+
+pub fn service(cfg: &mut ServiceConfig) {
+    cfg.route("/user", web::get().to(get_all_users));
+    cfg.route("/user/{id}", web::get().to(get_user));
+}
 
 #[derive(Debug, Deserialize, Serialize, sqlx::FromRow)]
 pub struct User {
@@ -22,8 +26,6 @@ pub struct User {
     pub middle_name: Option<String>,
 }
 
-
-#[get("/user/{id}")]
 async fn get_user(pool: web::Data<PgPool>, id: web::Path<Uuid>) -> impl Responder {
     tracing::info!("Getting user: {:?}", id);
     let result = sqlx::query_as::<_, User>("SELECT * FROM \"User\" WHERE id = $1")
@@ -40,10 +42,9 @@ async fn get_user(pool: web::Data<PgPool>, id: web::Path<Uuid>) -> impl Responde
     }
 }
 
-#[get("/users")]
 async fn get_all_users(pool: web::Data<PgPool>) -> impl Responder {
     tracing::info!("Getting all users");
-    let result = sqlx::query_as::<_, User>("SELECT id, \"createdAt\", \"updatedAt\", \"firstName\", \"lastName\", \"email\", \"middleName\" FROM \"User\"")
+    let result = sqlx::query_as::<_, User>("SELECT * FROM \"User\"")
         .fetch_all(pool.get_ref())
         .await;
 
