@@ -12,7 +12,7 @@
                 <option name="id" value="cc5b694a-0079-41c4-bb16-151a151a2bfd" />
                 <option name="method" value="GET" />
                 <option name="name" value="get-test" />
-                <option name="url" value="http://127.0.0.1:8000/users" />
+                <option name="url" value="http://127.0.0.1:8000/v0.1/users" />
               </requestState>
             </list>
           </option>
