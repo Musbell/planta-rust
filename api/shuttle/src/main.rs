@@ -1,4 +1,4 @@
-use actix_web::{web, App, HttpServer};
+use actix_web::{web, App, HttpServer, middleware};
 use sqlx::postgres::PgPoolOptions;
 use redis::aio::Connection;
 use std::sync::Arc; // Import Arc for shared references
@@ -26,6 +26,7 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(move || {
         App::new()
+            .wrap(middleware::Compress::default())
             .app_data(web::Data::new(pool.clone()))
             .app_data(web::Data::new(redis_connection.clone()))
             .configure(api_lib::user::service)
