@@ -1,4 +1,3 @@
 target/
 Secrets*.toml
 log
-.env
