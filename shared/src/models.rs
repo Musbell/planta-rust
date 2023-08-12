@@ -3,6 +3,7 @@ use chrono::{DateTime, Utc};
 use uuid::Uuid;
 
 // ------** Pagination Model **------//
+// PAGINATION
 #[derive(Debug, Deserialize)]
 pub struct Pagination {
     pub limit: i64,
@@ -11,6 +12,7 @@ pub struct Pagination {
 
 
 // ------** User Model **------//
+// GET USER
 #[derive(Debug, sqlx::FromRow, Serialize, Deserialize)]
 pub struct User {
     pub id: Uuid,
@@ -26,7 +28,7 @@ pub struct User {
     #[sqlx(rename = "middleName")]
     pub middle_name: Option<String>,
 }
-
+// CREATE USER
 #[derive(Debug, Deserialize, Serialize)]
 pub struct CreateUser {
     #[serde(rename = "firstName")]
@@ -38,6 +40,7 @@ pub struct CreateUser {
     pub middle_name: Option<String>,
 }
 
+// UPDATE USER
 #[derive(Debug, Deserialize, Serialize)]
 pub struct UpdateUser {
     pub id: Uuid,
@@ -50,6 +53,7 @@ pub struct UpdateUser {
     pub middle_name: Option<String>,
 }
 
+// DELETE USER
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DeleteUser {
     pub id: Uuid,
@@ -57,6 +61,7 @@ pub struct DeleteUser {
 
 
 // ------** Profile Model **------//
+// GET PROFILE
 #[derive(Debug, sqlx::FromRow, Serialize, Deserialize)]
 pub struct Profile {
     pub id: Uuid,
@@ -77,6 +82,7 @@ pub struct Profile {
     pub user_id: Uuid,
 }
 
+// CREATE PROFILE
 #[derive(Debug, Deserialize, Serialize)]
 pub struct CreateProfile {
     pub bio: String,
@@ -92,6 +98,7 @@ pub struct CreateProfile {
     pub user_id: Uuid,
 }
 
+// UPDATE PROFILE
 #[derive(Debug, Deserialize, Serialize)]
 pub struct UpdateProfile {
     pub id: Uuid,
@@ -108,7 +115,82 @@ pub struct UpdateProfile {
     pub user_id: Option<Uuid>,
 }
 
+// DELETE PROFILE
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DeleteProfile {
+    pub id: Uuid,
+}
+
+// ------** Farm Model **------//
+// GET FARM
+#[derive(Debug, sqlx::FromRow, Serialize, Deserialize)]
+pub struct Farm {
+    pub id: Uuid,
+    #[sqlx(rename = "createdAt")]
+    pub created_at: DateTime<Utc>,
+    #[sqlx(rename = "updatedAt")]
+    pub updated_at: DateTime<Utc>,
+    pub farm_name: Option<String>,
+    pub acreage: f64,
+    pub state: String,
+    pub locality: String,
+    pub has_drainage_tile: Option<bool>,
+    pub land_value: Option<i32>,
+    pub is_irrigated: Option<bool>,
+    pub ownership: String,
+    pub available_portion: Option<f64>,
+    pub country: String,
+    #[sqlx(rename = "farmerId")]
+    pub farmer_id: Uuid,
+    pub latitude: f64,
+    pub longitude: f64,
+    pub farm_site: Option<String>,
+}
+
+// CREATE FARM
+#[derive(Debug, Deserialize, Serialize)]
+pub struct CreateFarm {
+    #[serde(rename = "farmName")]
+    pub farm_name: String,
+    pub acreage: f64,
+    pub state: String,
+    pub locality: String,
+    pub has_drainage_tile: bool,
+    pub land_value: i32,
+    pub is_irrigated: bool,
+    pub ownership: String,
+    pub available_portion: f64,
+    pub country: String,
+    #[serde(rename = "farmerId")]
+    pub farmer_id: Uuid,
+    pub latitude: f64,
+    pub longitude: f64,
+    pub farm_site: String,
+}
+
+// UPDATE FARM
+#[derive(Debug, Deserialize, Serialize)]
+pub struct UpdateFarm {
+    pub id: Uuid,
+    pub farm_name: Option<String>,
+    pub acreage: Option<f64>,
+    pub state: Option<String>,
+    pub locality: Option<String>,
+    pub has_drainage_tile: Option<bool>,
+    pub land_value: Option<i32>,
+    pub is_irrigated: Option<bool>,
+    pub ownership: Option<String>,
+    pub available_portion: Option<f64>,
+    pub country: Option<String>,
+    #[serde(rename = "farmerId")]
+    pub farmer_id: Option<Uuid>,
+    pub latitude: Option<f64>,
+    pub longitude: Option<f64>,
+    pub farm_site: Option<String>,
+}
+
+// DELETE FARM
+#[derive(Debug, Deserialize, Serialize)]
+pub struct DeleteFarm {
     pub id: Uuid,
 }

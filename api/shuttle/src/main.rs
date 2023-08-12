@@ -31,7 +31,7 @@ async fn main() -> std::io::Result<()> {
             .app_data(web::Data::new(redis_connection.clone()))
             .configure(api_lib::user::service)
             .configure(api_lib::profile::service)
-
+            .configure(api_lib::farm::service)
     })
         .bind("0.0.0.0:8080")?
         .run()
