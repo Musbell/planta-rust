@@ -11,5 +11,6 @@ CREATE TABLE "User" (
                         UNIQUE ("email")
 );
 
+-- Todo: Create an index for email and firstName, lastName
 CREATE INDEX idx_user_lastName ON "User" ("lastName");
 CREATE INDEX idx_user_firstName ON "User" ("firstName");
